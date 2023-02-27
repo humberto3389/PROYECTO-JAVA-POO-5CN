@@ -16,29 +16,29 @@ public class CalculadoraBasica {
     }
 
     public static int suma(int num1, int num2) {//Nuestro metodo para sumar
+
         return num1 + num2;
     }
 
     public static int resta(int num1, int num2) {//Nuestro metodo para restar
+
         return num1 - num2;
     }
     public static int Multiplicacion(int num1, int num2) {//Nuestro metodo para multiplicar
+
         return num1 * num2;
     }
-    public static double Division(int num1, int num2) {
-        double resultados;
-        try {
-            resultados = (double) num1 / num2;
-        } catch (ArithmeticException e) {
-            System.out.println("Error: no se puede dividir por cero");
-            resultados = Double.NaN;
+    public static int Division(int num1, int num2) {
+        if (num2==0){
+            System.out.println("Error: No se puede dividir. Intente con otro numero diferente a  " + num2 + ".");
         }
-        return resultados;
+        return num1 / num2;
     }
+
+
     public static void main(String[] args) {
         int opcion;
-        int num1, num2,resultado;//Aqui declaramos las variables que vamos a usar y la inicializamos en 0.
-        double resultados;
+        int num1, num2,resultado;//Aqui declaramos las variables que vamos a usar.
         do {
             menu();
             opcion = new Scanner(System.in).nextInt();
@@ -79,13 +79,13 @@ public class CalculadoraBasica {
                     num1 = new Scanner(System.in).nextInt();
                     System.out.print("Ingrese el segundo número: ");
                     num2 = new Scanner(System.in).nextInt();
-                    resultados = Division(num1, num2);
-                    System.out.println("El resultado de la division es: " + resultados);
+                    resultado = Division(num1, num2);
+                    System.out.println("El resultado de la division es: " + resultado);
                     break;
                 default:
                     System.out.println("Opcion inválida. Intentelo nuevamente: ");
                     break;
             }
-        } while (opcion != 0);//calculadora terminada
+        } while (opcion != 0);
     }
 }
